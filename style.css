@@ -1,0 +1,1352 @@
+.seccion-titulo,
+.subseccion-titulo {
+	margin-bottom: 1rem;
+	text-align: center
+}
+
+#flecha-actividades,
+#flecha-ceremonias,
+#flecha-galeria,
+#flecha-himno,
+#flecha-historia,
+#flecha-marchas,
+#flecha-valores,
+.imagenes-galeria img {
+	transition: transform .3s
+}
+
+#historia,
+ul {
+	margin: 0 auto
+}
+
+#historia p,
+p {
+	line-height: 1.5
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url("escudo.jpg") center center / cover no-repeat fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+
+header {
+	background-color: #b30000;
+	text-align: center;
+	padding: 2rem 1rem;
+	width: 100%;
+	box-sizing: border-box
+}
+
+.titulo-artilleria {
+	font-size: 5rem;
+	font-weight: 700;
+	color: gold;
+	text-shadow: 3px 3px 15px red;
+	letter-spacing: 4px;
+	animation: 2s ease-in-out infinite alternate brillar;
+	text-transform: uppercase
+}
+
+#valores .seccion-titulo,
+.seccion-titulo,
+.subseccion-titulo,
+h3 {
+	font-weight: 600;
+	text-transform: uppercase
+}
+
+@keyframes brillar {
+	from {
+		text-shadow: 3px 3px 15px red
+	}
+
+	to {
+		text-shadow: 6px 6px 25px #f60
+	}
+}
+
+.content {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 1s, opacity .5s;
+	opacity: 0;
+	padding: 0 1rem;
+	background-color: rgba(0, 0, 0, .6);
+	border-radius: 8px;
+	margin-top: 10px
+}
+
+.cita,
+h3 {
+	margin-top: 1.5rem;
+	color: gold
+}
+
+.content.show {
+	max-height: 5000px;
+	opacity: 1;
+	padding: 1.5rem
+}
+
+.seccion-titulo {
+	font-size: 2.2rem;
+	font-family: Georgia, serif;
+	color: gold;
+	text-shadow: 1px 1px 3px #800;
+	cursor: pointer;
+	transition: color .3s
+}
+
+.cancionero-texto,
+.subseccion-titulo,
+.volumen-label {
+	text-shadow: 1px 1px 3px #000
+}
+
+.seccion-titulo:hover {
+	color: #f60
+}
+
+h3 {
+	font-size: 1.6rem
+}
+
+p,
+ul {
+	font-size: 1.2rem
+}
+
+p {
+	margin: 1rem 0;
+	text-align: justify;
+	word-wrap: break-word;
+	padding-bottom: 10px
+}
+
+ul {
+	text-align: left;
+	max-width: 600px
+}
+
+ul li {
+	margin-bottom: .5rem
+}
+
+.cita {
+	font-style: italic;
+	font-size: 1.5rem
+}
+
+.subseccion-titulo {
+	font-size: 1.3rem;
+	color: #ff7f00
+}
+
+.imagenes-galeria {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 15px;
+	margin-top: 20px;
+	padding: 10px
+}
+
+.boton-himno,
+.himno-contenido .boton-himno {
+	padding: 1rem 2rem;
+	font-size: 1.2rem;
+	text-decoration: none
+}
+
+.imagenes-galeria img {
+	width: 220px;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+	cursor: pointer
+}
+
+.boton-himno,
+.himno-contenido .boton-himno {
+	transition: background-color .3s;
+	border-radius: 10px
+}
+
+.icono-canon:hover,
+.imagenes-galeria img:hover {
+	transform: scale(1.1)
+}
+
+.texto-galeria {
+	text-align: center;
+	font-size: 1.2rem;
+	color: #fff;
+	margin-bottom: 20px
+}
+
+#fullscreenOverlay {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .8);
+	z-index: 1000
+}
+
+#fullscreenOverlay img {
+	max-width: 90%;
+	max-height: 90%;
+	border-radius: 10px
+}
+
+#fullscreenOverlay span {
+	font-size: 3rem;
+	color: #fff;
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	cursor: pointer
+}
+
+.biografia-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 2rem
+}
+
+.biografia-texto {
+	width: 60%;
+	font-size: 1.2rem;
+	line-height: 1.6;
+	text-align: justify
+}
+
+.biografia-imagen {
+	width: 35%;
+	text-align: center
+}
+
+.biografia-imagen img {
+	max-width: 100%;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, .3)
+}
+
+.boton-himno {
+	background-color: #b30000;
+	color: #fff
+}
+
+.audio-player-fixed button:hover,
+.boton-himno:hover,
+.himno-contenido .boton-himno:hover {
+	background-color: #f60
+}
+
+#valores .seccion-titulo {
+	text-align: center;
+	font-size: 2.2rem;
+	color: gold;
+	margin-bottom: 20px
+}
+
+#valoresContent {
+	margin-top: 10px;
+	font-size: 1.2rem;
+	color: #fff
+}
+
+#valoresContent ul {
+	padding-left: 20px
+}
+
+#valoresContent ul li {
+	font-size: 1.2rem;
+	margin-bottom: 10px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 20px;
+	margin-top: 30px;
+	gap: 20px
+}
+
+.himno-contenido p {
+	font-size: 1.3rem;
+	color: gold;
+	margin-bottom: 20px;
+	font-weight: 700
+}
+
+.himno-contenido .boton-himno {
+	display: inline-block;
+	background-color: #b30000;
+	color: #fff
+}
+
+.himno-contenido .imagen-himno {
+	margin-top: 20px;
+	max-width: 10%;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+
+#historia {
+	text-align: center;
+	padding: 40px 10px;
+	max-width: 900px
+}
+
+#historia .subtitulo {
+	font-size: 2rem;
+	font-weight: 500;
+	color: #fff;
+	margin-bottom: 20px;
+	text-align: center
+}
+
+#historia h3 {
+	font-size: 1.6rem;
+	font-weight: 600;
+	color: gold;
+	margin-top: 1rem;
+	text-align: center;
+	text-transform: uppercase
+}
+
+#historia p {
+	font-size: 1.2rem;
+	text-align: center;
+	margin-top: 10px;
+	max-width: 80%;
+	margin-left: auto;
+	margin-right: auto
+}
+
+#historia .cita {
+	font-size: 1.3rem;
+	font-style: italic;
+	color: gold;
+	margin-top: 30px;
+	text-align: center
+}
+
+.cadetes-container {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	margin-top: 20px;
+	flex-wrap: wrap
+}
+
+.cadetes-column {
+	flex: 1;
+	min-width: 230px;
+	padding: 10px;
+	text-align: left
+}
+
+.cadetes-column h3 {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: gold;
+	margin-bottom: 10px;
+	text-align: center
+}
+
+.lista-cadetes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 30px;
+	margin-top: 20px
+}
+
+.lista-cadetes ul {
+	list-style-type: none;
+	padding: 15px;
+	width: 280px;
+	background-color: rgba(0, 0, 0, .4);
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(255, 215, 0, .4)
+}
+
+.lista-cadetes ul li {
+	margin-bottom: 8px;
+	font-size: .9rem;
+	color: #fff;
+	text-shadow: 1px 1px 2px #000;
+	text-align: center
+}
+
+.lista-cadetes h3 {
+	font-size: 1.4rem;
+	color: gold;
+	text-align: center;
+	margin-bottom: 15px;
+	text-shadow: 1px 1px 3px #800
+}
+
+.audio-controls button {
+	background: 0 0;
+	border: none;
+	font-size: 20px;
+	cursor: pointer
+}
+
+.audio-controls input[type=range] {
+	accent-color: #000;
+	width: 100px;
+	cursor: pointer
+}
+
+.audio-player-fixed {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	background: rgba(0, 0, 0, .7);
+	padding: 15px 20px;
+	border-radius: 12px;
+	box-shadow: 0 0 10px gold;
+	z-index: 10000;
+	display: flex;
+	flex-direction: column;
+	align-items: center
+}
+
+.audio-player-fixed button {
+	font-size: 1.5rem;
+	background-color: #b30000;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	padding: 8px 14px;
+	cursor: pointer;
+	margin-bottom: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+	transition: background-color .3s
+}
+
+.volume-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center
+}
+
+.volumen-label {
+	color: gold;
+	font-weight: 700;
+	font-size: .9rem;
+	font-family: Georgia, serif;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+	letter-spacing: 1px
+}
+
+#volumeSlider {
+	width: 100px
+}
+
+input[type=range] {
+	-webkit-appearance: none;
+	appearance: none;
+	background: red
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	margin-top: -6px
+}
+
+input[type=range]::-ms-track {
+	background: 0 0;
+	border-color: transparent;
+	color: transparent;
+	height: 8px
+}
+
+input[type=range] {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 10px;
+	background: linear-gradient(to right, #8b0000, #a10000);
+	border-radius: 8px;
+	outline: 0;
+	cursor: pointer;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, .5);
+	transition: background .3s
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 20px;
+	width: 20px;
+	background: gold;
+	border: 2px solid #8b0000;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: transform .2s
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+	transform: scale(1.2)
+}
+
+input[type=range]::-moz-range-track {
+	background: red;
+	background: linear-gradient(to right, #8b0000, #a10000);
+	height: 10px;
+	border-radius: 8px
+}
+
+input[type=range]::-moz-range-thumb {
+	height: 20px;
+	width: 20px;
+	background: gold;
+	border: 2px solid #8b0000;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: transform .2s
+}
+
+input[type=range]::-moz-range-thumb:hover {
+	transform: scale(1.2)
+}
+
+input[type=range]::-ms-thumb {
+	height: 20px;
+	width: 20px;
+	background: gold;
+	border: 2px solid #8b0000;
+	border-radius: 50%;
+	cursor: pointer
+}
+
+.titulo-artilleria-hover {
+	font-size: 5rem;
+	font-weight: 700;
+	color: gold;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	transition: .3s
+}
+
+.imagen-canon {
+	width: 200px;
+	height: auto;
+	margin: 0 20px;
+	vertical-align: middle
+}
+
+.titulo-artilleria-hover:hover {
+	color: #fff700;
+	text-shadow: 0 0 10px #f60, 0 0 20px #f30, 0 0 30px #f10, 0 0 40px red;
+	animation: 1.5s ease-in-out infinite alternate glow-artilleria
+}
+
+@keyframes glow-artilleria {
+	from {
+		text-shadow: 0 0 10px #f60, 0 0 20px #f30, 0 0 30px #f10, 0 0 40px red
+	}
+
+	to {
+		text-shadow: 0 0 20px #f30, 0 0 30px #f10, 0 0 40px red, 0 0 50px #c00
+	}
+}
+
+.icono-canon {
+	width: 80px;
+	height: auto;
+	filter: drop-shadow(2px 2px 4px #000);
+	transition: transform .3s
+}
+
+@keyframes glowConstante {
+	from {
+		text-shadow: 0 0 5px #f90, 0 0 10px #c60
+	}
+
+	to {
+		text-shadow: 0 0 8px #fc3, 0 0 12px #c60
+	}
+}
+
+.cancionero-container {
+	text-align: center;
+	padding: 30px;
+	background-color: rgba(0, 0, 0, .7);
+	border-radius: 15px;
+	margin-top: 20px;
+	box-shadow: 0 0 15px rgba(255, 215, 0, .5)
+}
+
+.cancionero-texto {
+	color: gold;
+	font-size: 1.4rem;
+	margin-bottom: 15px;
+	font-weight: 700;
+	text-align: center
+}
+
+.boton-cancionero {
+	display: inline-block;
+	background-color: #b30000;
+	color: #fff;
+	padding: 1rem 2rem;
+	font-size: 1.2rem;
+	border-radius: 10px;
+	text-decoration: none;
+	font-weight: 700;
+	transition: background-color .3s, transform .3s;
+	box-shadow: 0 4px 8px rgba(255, 0, 0, .5)
+}
+
+.boton-cancionero:hover {
+	background-color: #f60;
+	transform: scale(1.05);
+	color: #fff700
+}
+
+.datos-artilleria-container {
+	font-size: 1.2rem;
+	line-height: 1.6;
+	text-align: justify;
+	max-width: 900px;
+	margin: 0 auto;
+	color: #fff
+}
+
+.datos-artilleria-container p {
+	margin: 10px 0
+}
+
+.lema-artilleria {
+	font-style: italic;
+	font-size: 1.1rem;
+	color: gold;
+	background-color: rgba(0, 0, 0, .3);
+	padding: 15px;
+	border-left: 4px solid #f60;
+	border-radius: 8px;
+	margin-top: 15px;
+	text-align: left
+}
+
+.patrono-imagen-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px
+}
+
+.patrono-imagen {
+	width: 60%;
+	max-width: 500px;
+	height: auto;
+	border-radius: 15px;
+	box-shadow: 0 0 15px rgba(255, 215, 0, .5);
+	transition: transform .3s
+}
+
+.patrona-biografia-imagen img:hover,
+.patrono-biografia-imagen img:hover,
+.patrono-imagen:hover {
+	transform: scale(1.05)
+}
+
+.patrona-biografia-container,
+.patrono-biografia-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 40px;
+	margin-top: 20px
+}
+
+.patrona-biografia-texto,
+.patrono-biografia-texto {
+	flex: 1;
+	min-width: 280px;
+	max-width: 600px;
+	color: #fff;
+	font-size: 1.2rem;
+	text-align: justify;
+	padding: 20px;
+	background-color: rgba(0, 0, 0, .6);
+	border-radius: 12px;
+	box-shadow: 0 0 15px rgba(255, 215, 0, .5)
+}
+
+.patrona-titulo,
+.patrono-titulo {
+	font-size: 2rem;
+	font-weight: 700;
+	color: gold;
+	text-align: center;
+	margin-bottom: 10px
+}
+
+.patrona-subtitulo,
+.patrono-subtitulo {
+	font-size: 1.4rem;
+	color: #f90;
+	text-align: center;
+	margin-bottom: 20px;
+	text-transform: uppercase
+}
+
+.patrona-cita,
+.patrono-cita {
+	font-style: italic;
+	font-size: 1.1rem;
+	color: gold;
+	text-align: center;
+	margin-bottom: 20px
+}
+
+.patrona-biografia-imagen,
+.patrono-biografia-imagen {
+	flex: 1;
+	min-width: 250px;
+	max-width: 450px;
+	text-align: center
+}
+
+.patrona-biografia-imagen img,
+.patrono-biografia-imagen img {
+	width: 100%;
+	border-radius: 15px;
+	box-shadow: 0 0 15px rgba(255, 215, 0, .6);
+	transition: transform .3s;
+	cursor: pointer
+}
+
+.artilleria-mision-container,
+.historia-artilleria-container {
+	padding: 20px;
+	background-color: rgba(0, 0, 0, .6);
+	border-radius: 15px;
+	box-shadow: 0 0 15px rgba(255, 215, 0, .5);
+	color: #fff;
+	font-size: 1.2rem;
+	line-height: 1.6
+}
+
+.mision-titulo {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 700;
+	color: gold;
+	margin-bottom: 20px
+}
+
+.mision-lista li,
+.mision-subtitulo {
+	margin-bottom: 10px
+}
+
+.mision-subtitulo {
+	text-align: center;
+	font-size: 1.5rem;
+	color: #f90;
+	margin-top: 30px
+}
+
+.mision-cita,
+.mision-final {
+	color: gold;
+	font-style: italic;
+	text-align: center
+}
+
+.mision-cita {
+	font-size: 1.2rem;
+	margin: 20px 0
+}
+
+.mision-lista {
+	list-style-type: square;
+	padding-left: 40px;
+	margin-bottom: 20px
+}
+
+.mision-final {
+	font-size: 1.5rem;
+	margin: 40px 0 20px
+}
+
+.mision-eleccion {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 700;
+	color: #f60;
+	margin-bottom: 20px;
+	text-shadow: 0 0 10px rgba(255, 102, 0, .8)
+}
+
+.historia-titulo {
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: gold;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	text-transform: uppercase
+}
+
+.titulo-texto,
+.toggle-titulo {
+	font-family: 'Bebas Neue', sans-serif;
+	font-weight: 400
+}
+
+.historia-cita {
+	text-align: center;
+	font-style: italic;
+	color: #fc0;
+	font-size: 1.4rem;
+	margin: 40px 0 20px
+}
+
+.toggle-titulo {
+	cursor: pointer;
+	transition: transform .3s, color .3s, text-shadow .3s;
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+	font-size: 2.8rem;
+	letter-spacing: 3px;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, .7)
+}
+
+.bala,
+.bala-canon {
+	width: 30px;
+	height: 30px;
+	z-index: 2000;
+	position: fixed
+}
+
+.toggle-titulo:hover {
+	transform: scale(1.08);
+	color: #f60;
+	text-shadow: 0 0 10px #f60, 0 0 20px #f30, 0 0 30px #f20, 0 0 40px #f10
+}
+
+.cerrar-contenido {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 1.4rem;
+	color: gold;
+	cursor: pointer;
+	transition: color .3s, transform .3s
+}
+
+.cerrar-contenido:hover {
+	color: #f60;
+	transform: scale(1.1);
+	text-shadow: 0 0 10px #f60
+}
+
+.bala-canon {
+	background: radial-gradient(circle, #333 0, #111 80%);
+	border-radius: 50%;
+	animation: 1.5s linear forwards disparoCanon
+}
+
+@keyframes disparoCanon {
+	from {
+		transform: translateY(0) scale(1);
+		opacity: 1
+	}
+
+	to {
+		transform: translateY(-100vh) scale(1.2);
+		opacity: 0
+	}
+}
+
+.bala {
+	background: url('bala.png') center center/contain no-repeat;
+	pointer-events: none;
+	animation: 1.2s forwards volar
+}
+
+@keyframes volar {
+	0% {
+		transform: translate(0, 0) scale(1);
+		opacity: 1
+	}
+
+	100% {
+		transform: translate(var(--dx), var(--dy)) scale(.2);
+		opacity: 0
+	}
+}
+
+#loader {
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Bebas Neue', sans-serif;
+	flex-direction: column;
+	animation: 2s infinite pulse
+}
+
+@keyframes pulse {
+
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 1
+	}
+
+	50% {
+		transform: scale(1.05);
+		opacity: .8
+	}
+}
+
+@media only screen and (max-width:600px) {
+
+	.content,
+	body {
+		padding: 10px
+	}
+
+	body {
+		font-size: 16px;
+		overflow-x: hidden
+	}
+
+	.titulo-artilleria-container {
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		text-align: center
+	}
+
+	#pantalla-carga,
+	.subtitulo {
+		font-size: 1.5rem
+	}
+
+	.titulo-artilleria-constante {
+		font-size: 2.5rem
+	}
+
+	.historia-titulo {
+		font-size: 1.8rem
+	}
+
+	.historia-cita {
+		font-size: 1.2rem;
+		padding: 10px
+	}
+
+	.punto-titulo,
+	.seccion-titulo,
+	.subseccion-titulo {
+		font-size: 2rem;
+		text-align: center
+	}
+
+	.audio-player-fixed {
+		top: 10px;
+		right: 10px;
+		transform: scale(.8)
+	}
+
+	.imagenes-galeria img {
+		width: 100%;
+		height: auto;
+		margin-bottom: 10px
+	}
+
+	.lista-cadetes ul {
+		padding-left: 20px;
+		font-size: 14px
+	}
+
+	.cerrar-contenido {
+		font-size: 14px;
+		padding: 8px
+	}
+}
+
+@media (max-width:768px) {
+	@media (max-width:768px) {
+		.titulo-artilleria-container {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 5px;
+			margin: 5px auto;
+			background-color: rgba(180, 0, 0, .25);
+			border-radius: 10px;
+			max-width: 90%;
+			max-height: 300px;
+			overflow: hidden
+		}
+
+		.titulo-artilleria-constante {
+			font-size: 1.3rem;
+			margin: 2px 0;
+			letter-spacing: 1.5px
+		}
+	}
+
+	.subtitulo {
+		font-size: 1.2rem
+	}
+
+	.titulo-artilleria-constante {
+		font-weight: 700;
+		color: gold;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		text-align: center;
+		animation: 2.5s ease-in-out infinite alternate glowConstante;
+		text-shadow: 0 0 5px #f90, 0 0 10px #c60;
+		font-size: 2rem;
+		letter-spacing: 2px
+	}
+
+	header p {
+		font-size: 1rem
+	}
+
+	footer p {
+		font-size: .7rem;
+		text-align: center;
+		margin: 10px;
+		letter-spacing: .5px;
+		line-height: 1.2
+	}
+}
+
+.titulo-artilleria-constante,
+.titulo-texto {
+	text-transform: uppercase;
+	text-shadow: 2px 2px 10px red
+}
+
+.titulo-artilleria-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 40px;
+	flex-wrap: wrap;
+	padding: 20px 0
+}
+
+.titulo-artilleria-constante {
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	text-align: center;
+	letter-spacing: 2px;
+	letter-spacing: 1.5px
+}
+
+@media (max-width:768px) {
+	@media (max-width:768px) {
+		.titulo-artilleria-container {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 5px;
+			margin: 5px auto;
+			background-color: rgba(180, 0, 0, .25);
+			border-radius: 10px;
+			max-width: 90%;
+			max-height: 300px;
+			overflow: hidden
+		}
+
+		.titulo-artilleria-constante {
+			font-size: 1.3rem;
+			margin: 2px 0;
+			letter-spacing: 1.5px
+		}
+	}
+
+	.titulo-texto-container {
+		background-color: #b40000;
+		border-radius: 10px;
+		padding: 8px 12px;
+		max-width: 90%
+	}
+
+	.subtitulo {
+		font-size: .9rem;
+		margin: 2px 0
+	}
+
+	.titulo-artilleria-constante {
+		font-size: 1.3rem;
+		margin: 2px 0;
+		letter-spacing: 1.5px
+	}
+
+	header p {
+		font-size: .8rem;
+		margin: 2px 0
+	}
+
+	.content {
+		padding: 20px 15px;
+		font-size: .95rem;
+		line-height: 1.4;
+		word-break: break-word;
+		overflow-wrap: break-word
+	}
+
+	.artilleria-mision-container,
+	.historia-artilleria-container,
+	.patrona-biografia-container,
+	.patrono-biografia-container {
+		padding: 10px;
+		margin: 0 auto;
+		width: 95%
+	}
+
+	.historia-titulo,
+	.mision-titulo,
+	.patrona-titulo,
+	.patrono-titulo {
+		font-size: 1.2rem;
+		margin-bottom: 10px;
+		text-align: center
+	}
+
+	.historia-cita,
+	.mision-cita,
+	.patrona-cita,
+	.patrono-cita {
+		font-size: 1rem;
+		text-align: center;
+		margin: 10px 0
+	}
+
+	.mision-lista,
+	.mision-subtitulo {
+		font-size: .95rem;
+		padding-left: 20px
+	}
+}
+
+#loader,
+header p {
+	font-size: 1.8rem;
+	text-align: center
+}
+
+#loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(255, 0, 0, .7);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	white-space: nowrap;
+	overflow: hidden;
+	z-index: 10000
+}
+
+@media (max-width:768px) {
+	#loader {
+		font-size: .8rem
+	}
+}
+
+.titulo-texto {
+	font-size: 3.2rem;
+	color: gold;
+	letter-spacing: 3px;
+	text-align: center;
+	line-height: 1.2
+}
+
+.subtitulo,
+.titulo-texto p,
+header p {
+	font-family: 'Bebas Neue', sans-serif;
+	font-weight: 400;
+	color: #fff
+}
+
+.titulo-texto p {
+	font-size: 2rem;
+	margin-top: 10px
+}
+
+.subtitulo {
+	text-transform: uppercase;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-bottom: .5rem
+}
+
+.titulo-artilleria-constante {
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 6rem;
+	font-weight: 400;
+	color: gold;
+	letter-spacing: 6px;
+	margin: .5rem 0;
+	animation: 2.5s ease-in-out infinite alternate glowConstante
+}
+
+header p {
+	margin: .5rem 0 2px
+}
+
+@media only screen and (max-width:600px) {
+	.titulo-artilleria-container {
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		padding: 10px;
+		background-color: #b30000;
+		border-radius: 10px;
+		margin-top: 10px;
+		margin-bottom: 20px
+	}
+
+	.subtitulo {
+		font-size: 1.2rem;
+		margin-bottom: 5px;
+		font-weight: 600
+	}
+
+	.titulo-artilleria-constante {
+		font-size: 2.5rem;
+		letter-spacing: 3px;
+		color: gold;
+		text-align: center;
+		animation: 2.5s ease-in-out infinite alternate glowConstante;
+		text-shadow: 0 0 5px #f90, 0 0 10px #c60
+	}
+
+	header p {
+		font-size: 1rem;
+		margin-top: 5px;
+		font-weight: 400
+	}
+
+	.icono-canon {
+		width: 50px;
+		height: auto;
+		filter: drop-shadow(2px 2px 4px #000)
+	}
+}
+@media only screen and (max-width: 600px) {
+    .titulo-artilleria-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 20px; /* 15px arriba/abajo, 20px izquierda/derecha */
+      margin: 10px auto;
+      background-color: #b30000;
+      border-radius: 10px;
+      width: 95%;
+      max-width: 350px;
+      box-sizing: border-box;
+      overflow: visible; 
+    }
+
+    .subtitulo {
+      margin-bottom: 3px;
+      font-size: 1.2rem;
+    }
+
+    .titulo-texto {
+      font-size: 1.8rem; /* MÁS PEQUEÑO EN CELULAR */
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .titulo-artilleria-constante {
+      font-size: 2.8rem; /* "ARTILLERÍA" centrado y grande */
+      letter-spacing: 4px;
+    }
+
+    .icono-canon {
+      display: none; /* 🔴 OCULTA CAÑONES EN CELULAR */
+    }
+
+    .audio-player-fixed {
+      top: 5px;
+      right: 5px;
+      transform: scale(0.7);
+    }
+
+    p, ul, .content {
+      font-size: 1rem;
+      line-height: 1.4;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    body {
+      min-height: 100vh; /* que siempre ocupe toda la pantalla */
+      background-attachment: fixed; /* que el fondo no se mueva */
+      background-size: cover; /* que siempre cubra todo el fondo */
+      background-repeat: no-repeat;
+    }
+    .content {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 1s, opacity 0.5s;
+      }
+      .content.show {
+        max-height: 5000px; /* que se despliegue solo cuando esté abierto */
+        opacity: 1;
+        padding: 1.5rem;
+      }
+      .content {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+        padding: 1rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        max-width: 90%;    /* 🔥 Limita el ancho a 90% */
+        margin: 10px auto; /* 🔥 Centra con margen automático */
+        box-sizing: border-box; /* 🔥 Para que padding no deforme el ancho */
+      }
+      
+      
+      
+}
+        
