@@ -1,13 +1,631 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DÍA DEL ARMA DE ARTILLERÍA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader">
+    <h1>🔥 Cargando Artillería... 🔥</h1>
+  </div>
+  
+
+<!-- Mini reproductor moderno en la parte superior derecha -->
+<div class="audio-player-fixed">
+  <audio id="reproductorAudio" loop>
+    <source src="himno.mp3" type="audio/mp3">
+    Tu navegador no soporta el audio.
+  </audio>
+  <audio id="audioDisparo">
+    <source src="disparo-canon.mp3" type="audio/mp3">
+    Tu navegador no soporta audio.
+  </audio>
+  <button onclick="toggleReproductor()" id="reproBtn">▶</button>
+  <div class="volume-container">
+    <label for="volumeSlider" class="volumen-label">VOLUMEN</label>
+    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+  </div>
+</div>
+
+<header>
+  <div class="titulo-artilleria-container">
+  
+    <!-- Primer cañón (arriba) -->
+    <img src="cañones.png" class="icono-canon" alt="Cañones cruzados" onclick="dispararCañones()">
+    
+    <!-- Contenedor solo del texto -->
+    <div class="titulo-texto">
+      <span class="subtitulo">DÍA DEL ARMA DE</span><br>
+      <span class="titulo-artilleria-constante">ARTILLERÍA</span><br>
+      <p>2 de mayo - EMCH 'CFB'</p>
+    </div>
+    
+    <!-- Segundo cañón (abajo) -->
+    <img src="cañones.png" class="icono-canon" alt="Cañones cruzados" onclick="dispararCañones()">
+    
+  </div>  
+  
+</header>
+
+
+  <main>
+    <section id="historia">
+      <h2 class="seccion-titulo toggle-titulo">LA ARTILLERÍA DEL PERÚ</h2>
+      <div class="content">
+        <div class="historia-artilleria-container">
+    
+          <h2 class="historia-titulo">Historia de la Artillería del Perú</h2>
+          <blockquote class="historia-cita">
+            "La artillería es el martillo que forja la victoria en el yunque de la batalla."
+          </blockquote>
+    
+          <h2 class="historia-titulo">Orígenes de una Fuerza Inquebrantable</h2>
+          <p>Desde los albores de la independencia, cuando el Perú aún se sacudía de las cadenas coloniales, la artillería comenzó a forjar su leyenda entre el metal y la pólvora.</p>
+          <p>En aquellos primeros días, las piezas artilleras eran escasas y precarias, pero cada cañón era un símbolo de libertad. Bajo el liderazgo de héroes como Don José de San Martín y Simón Bolívar, se organizó el primer cuerpo de artillería patriota, formado por hombres que aprendieron, entre el humo y el estruendo, a escribir con fuego el destino de la nueva nación.</p>
+          <p>No fue fácil. La falta de materiales, de entrenamiento y de experiencia obligaba a los artilleros peruanos a suplir con valor lo que no tenían en recursos. Sin embargo, en cada disparo resonaba la voluntad de un pueblo decidido a ser libre. Así nació la artillería peruana: humilde en sus inicios, pero inquebrantable en su espíritu.</p>
+    
+          <h2 class="historia-titulo">El Combate del 2 de Mayo de 1866</h2>
+          <p>El 2 de mayo de 1866, el puerto del Callao se convirtió en el altar del coraje artillero.</p>
+          <p>Frente a la amenaza de la escuadra española, que buscaba someter nuevamente a la nación independiente, los artilleros peruanos se apostaron en las fortalezas y baterías costeras. Desde la emblemática Torre La Merced, pasando por los reductos de Santa Rosa y Ayacucho, las bocas de fuego artillero escupieron su respuesta: la defensa inquebrantable de la patria.</p>
+          <p>Durante horas interminables, el cielo se cubrió de humo, metralla y fuego. La artillería peruana, a pesar de su desventaja en número y potencia, mantuvo su posición, desbarató ataques y causó serios daños a las naves enemigas. La retirada de la flota española selló una de las victorias más emblemáticas de la historia nacional. En el Callao, no solo se defendió un puerto: se defendió la dignidad de un país.</p>
+          <p>El estruendo de los cañones aquel día no se disipó en el viento: se inscribió para siempre en el alma del Perú.</p>
+    
+          <h2 class="historia-titulo">La Guerra del Pacífico</h2>
+          <p>Cuando en 1879 estalló el conflicto con Chile, la artillería peruana volvió a ser llamada a la historia.</p>
+          <p>Desde las trincheras de Arica hasta los campos de San Juan y Miraflores, los artilleros resistieron con fiereza. Piezas fijas y móviles, emplazadas en terrenos inhóspitos y frente a enemigos mejor equipados, buscaron cada oportunidad para hacer sentir su fuego devastador.</p>
+          <p>En Arica, el legendario Morro fue defendido no solo por el coraje de sus soldados, sino también por los cañones que resistieron hasta su último disparo. En San Juan y Miraflores, aunque la marea de la guerra fue adversa, la artillería peruana luchó hasta agotar sus municiones, demostrando que su espíritu era más fuerte que cualquier adversidad.</p>
+          <p>La Guerra del Pacífico dejó heridas profundas en la nación, pero también elevó a la artillería como símbolo de resistencia y lealtad incondicional al deber.</p>
+    
+          <h2 class="historia-titulo">Siglo XX: Renovación y Saber Técnico</h2>
+          <p>Después de la guerra, comenzó un largo proceso de reconstrucción y modernización.</p>
+          <p>A medida que el mundo militar evolucionaba, el Perú entendió que el futuro de la artillería no estaba solamente en la fuerza bruta, sino en la precisión, el estudio y la ciencia.</p>
+          <p>Durante el siglo XX, se modernizaron los cañones, se crearon escuelas de artillería, se incorporaron estudios de balística, topografía y cálculo de tiro. La artillería dejó de ser solo fuerza: se transformó en inteligencia operativa.</p>
+          <p>Las piezas autopropulsadas, los obuses de largo alcance y los nuevos sistemas de control de fuego colocaron a la artillería peruana a la par de las exigencias modernas, lista para defender la soberanía nacional en cualquier terreno y circunstancia.</p>
+          <p>El artillero del siglo XX no era solo un guerrero: era un especialista, un científico de la guerra, un custodio del fuego racionalizado.</p>
+    
+          <h2 class="historia-titulo">La Artillería en el Siglo XXI</h2>
+
+          <p>Hoy, la artillería peruana es una fuerza <strong>moderna, precisa y tecnificada</strong>.</p>
+          <p>Se emplean <strong>sistemas de tiro computarizados</strong>, <strong>softwares de balística avanzada</strong> y <strong>plataformas digitales de comando y control</strong> que permiten coordinar fuegos con <em>exactitud milimétrica</em>.</p>
+          <p>Además, el uso de <strong>UAVs (vehículos aéreos no tripulados)</strong> proporciona <em>inteligencia en tiempo real</em>, facilita la adquisición de objetivos y permite corregir los fuegos con una <em>altísima precisión</em>.</p>
+          <p>La artillería combina ahora la <strong>fuerza tradicional</strong> con la <strong>tecnología moderna</strong>, asegurando que <em>cada disparo</em> sea un <strong>golpe certero en favor de la victoria</strong>.</p>
+        </div>
+        <div class="cerrar-contenido" onclick="cerrarEsteContenido(this)">
+          ▲ Cerrar
+        </div>
+      </div>
+    </section>
+    
+    <section id="datos-artilleria">
+      <h2 class="seccion-titulo toggle-titulo">DATOS DE ARTILLERÍA</h2>
+      <div class="content">
+ <!-- Punto 1: Patrono de Artillería -->
+ <section id="patrono">
+  <h3 class="subseccion-titulo toggle-titulo">
+    PATRONO DE ARTILLERÍA
+  </h3>
+  <div class="content">
+    <div class="patrono-biografia-container">
+      
+      <!-- Texto a la izquierda -->
+      <div class="patrono-biografia-texto">
+        <h2 class="patrono-titulo">CRL. DON JOSÉ JOAQUÍN INCLÁN GONZÁLEZ VIGIL</h2>
+        <h3 class="patrono-subtitulo">PATRONO DEL ARMA DE ARTILLERÍA</h3>
+        <p class="patrono-cita">
+          "Ejemplo de heroísmo, estrategia y valor, Don José Joaquín Inclán dejó una huella imborrable en el espíritu artillero del Perú."
+        </p>
+        <p>El Coronel Don José Joaquín Inclán González Vigil se destacó por su firmeza de carácter, su pasión por el Perú y su genio militar en momentos clave de nuestra historia.</p>
+        <p>Hombre de estrategia y temple, supo conjugar la fuerza del acero con la sabiduría de la táctica, guiando a sus artilleros hacia la gloria con honor y determinación.</p>
+        <p>Su legado vive en cada cañón que retumba, en cada formación que marcha y en cada artillero que porta con orgullo el uniforme de la patria.</p>
+      </div>
+
+      <!-- Imagen a la derecha -->
+      <div class="patrono-biografia-imagen">
+        <img src="inclán.png" alt="Coronel Inclán" onclick="openFullscreen(this)">
+      </div>
+
+    </div>
+    <div class="cerrar-contenido" onclick="cerrarEsteContenido(this)">
+      ▲ Cerrar
+    </div>    
+  </div>
+</section>
+
+
+<!-- Punto 2: Patrona de Artillería -->
+<section id="patrona">
+  <h3 class="subseccion-titulo toggle-titulo">
+    PATRONA DE ARTILLERÍA
+  </h3>
+  <div class="content">
+    <div class="patrona-biografia-container">
+      
+      <!-- Texto a la izquierda -->
+      <div class="patrona-biografia-texto">
+        <h2 class="patrona-titulo">SANTA BÁRBARA BENDITA</h2>
+        <h3 class="patrona-subtitulo">PATRONA DEL ARMA DE ARTILLERÍA</h3>
+        <p class="patrona-cita">
+          "Cuando los cielos rugen y la pólvora tiñe el viento, allí resuena el nombre de Santa Bárbara, protectora de quienes enfrentan la tormenta del combate."
+        </p>
+        <p>Hace muchos siglos, en tiempos del Imperio Romano, nació en Nicomedia (actual Turquía) Santa Bárbara, hija de un poderoso y severo hombre llamado Dióscoro.</p>
+        <p>Desde temprana edad, Bárbara brilló por su inteligencia, su belleza y, sobre todo, su profunda fe cristiana, en una época donde profesar esa fe significaba arriesgar la vida.</p>
+        <p>Su padre, enemigo de la nueva religión, al enterarse de su conversión, la entregó a las autoridades. Bárbara fue perseguida, torturada y finalmente condenada a muerte.</p>
+        <p>Cuenta la leyenda que fue su propio padre quien, espada en mano, ejecutó la sentencia. Pero la justicia divina no se hizo esperar: tras cometer aquel acto atroz, Dióscoro fue alcanzado y fulminado por un rayo en medio de una tormenta desatada en los cielos.</p>
+        <p>Desde entonces, Santa Bárbara fue venerada como protectora contra los rayos, las explosiones y los incendios, los mismos elementos que rodean a los hombres de artillería en sus heroicas labores.</p>
+      </div>
+
+      <!-- Imagen a la derecha -->
+      <div class="patrona-biografia-imagen">
+        <img src="patrona.jpg" alt="Santa Bárbara Bendita" onclick="openFullscreen(this)">
+      </div>
+
+    </div>
+    <div class="cerrar-contenido" onclick="cerrarEsteContenido(this)">
+      ▲ Cerrar
+    </div>    
+  </div>
+</section>
+
+
+<!-- Punto 3: ¿DE QUÉ SE ENCARGA LA ARTILLERÍA?-->
+<section id="preguntas-frecuentes">
+  <h3 class="subseccion-titulo toggle-titulo">
+    ¿DE QUÉ SE ENCARGA LA ARTILLERÍA?
+  </h3>
+
+  <div class="content">
+    <div class="artilleria-mision-container">
+
+      <h2 class="mision-titulo">LA MISIÓN DE LA ARTILLERÍA: EL BRAZO DEL FUEGO DECISIVO</h2>
+
+      <blockquote class="mision-cita">
+        "Sin artillería, el coraje es en vano."<br>— Napoleón Bonaparte
+      </blockquote>
+
+      <p>En el estruendo de los campos de batalla, cuando el cielo se parte en truenos de fuego, es la Artillería quien dicta el destino de los hombres y de las naciones.</p>
+
+      <p>La Artillería, considerada el "Brazo Largo del Ejército", tiene como misión fundamental apoyar y proteger a las tropas de maniobra, destruir al enemigo antes de que alcance nuestras posiciones y abrir el camino hacia la victoria.</p>
+
+      <p>La Artillería no improvisa: calcula, mide, corrige y golpea. Cada disparo es una operación de ciencia, arte y valor.</p>
+
+      <h3 class="mision-subtitulo">¿De qué se encarga la Artillería?</h3>
+
+      <ul class="mision-lista">
+        <li>Neutralizar las fuerzas enemigas antes de que entren en contacto con nuestras tropas.</li>
+        <li>Proporcionar fuego de apoyo para las unidades de infantería y blindados.</li>
+        <li>Defender posiciones estratégicas, centros urbanos y puntos clave del terreno.</li>
+        <li>Romper defensas enemigas, abatir fortificaciones y desorganizar formaciones adversarias con fuego preciso.</li>
+      </ul>
+
+      <p>Cuando la batalla parece inmóvil, la Artillería rompe el equilibrio. Cuando el enemigo resiste, la Artillería lo doblega.</p>
+
+      <h3 class="mision-subtitulo">¿Qué funciones cumple en la batalla?</h3>
+
+      <ul class="mision-lista">
+        <li>Fuegos de preparación: ablandan y debilitan las posiciones enemigas antes del asalto.</li>
+        <li>Apoyo directo: protegen los avances y retiradas de nuestras fuerzas.</li>
+        <li>Contra-batería: identifican y neutralizan las piezas de artillería enemigas.</li>
+        <li>Fuegos profundos: golpean depósitos, centros de mando y líneas de abastecimiento tras el frente enemigo.</li>
+      </ul>
+
+      <p>La Artillería opera con visión de conjunto, planeando a kilómetros de distancia, asegurando que cuando llegue el momento del combate cuerpo a cuerpo, la victoria ya esté inclinada a nuestro favor.</p>
+
+      <h3 class="mision-subtitulo">Frases Célebres que Definen su Grandeza</h3>
+
+      <blockquote class="mision-cita">
+        "La artillería conquista, la infantería ocupa."<br>— Napoleón Bonaparte
+      </blockquote>
+
+      <blockquote class="mision-cita">
+        "Dios pelea en el lado donde está la mejor artillería."<br>— Voltaire
+      </blockquote>
+
+      <blockquote class="mision-cita">
+        "Un ejército sin artillería es como un cuerpo sin brazos."<br>— Anónimo militar
+      </blockquote>
+
+      <p>Cada una de estas palabras resume la importancia vital de la Artillería: ser el poder que precede y sostiene la acción de todas las demás armas.</p>
+
+      <h3 class="mision-subtitulo">¿Por qué los cadetes de la EMCH deberían elegir Artillería?</h3>
+
+      <p>Porque Artillería es ciencia, cálculo y estrategia al servicio del combate.</p>
+
+      <p>Porque es el arma de los estrategas, de aquellos que no temen pensar en el horizonte, medir las variables del terreno, calcular la trayectoria perfecta y decidir el destino de la batalla con inteligencia y precisión.</p>
+
+      <p>Porque ser artillero no es solo disparar cañones: es dominar el espacio, el tiempo y el ritmo de la guerra.</p>
+
+      <p>Un cadete que elige Artillería elige formar parte de la élite de los planificadores de la victoria. Elige ser quien, en el momento crucial, traza el rumbo de los acontecimientos.</p>
+
+      <p>La Artillería es honor, es temple, es el brazo profundo que extiende el poder de la Patria más allá del alcance de la vista. Cada cañón es una promesa de victoria y cada disparo un acto de lealtad al Perú.</p>
+
+      <p>La Artillería no pregunta quién ganó la guerra. Ella sabe que, cuando los truenos retumban y la tierra tiembla bajo la presión del fuego, la victoria lleva su firma indeleble.</p>
+
+      <h2 class="mision-final">
+        Por eso, cadete, si quieres ser parte del arma que rompe las cadenas del enemigo, si deseas ser memoria viva del coraje y de la inteligencia militar, entonces tu destino está claro:
+      </h2>
+
+      <h2 class="mision-eleccion">
+        Elige Artillería. <br>Domina el cielo, el terreno y la victoria.
+      </h2>
+
+    </div>
+    <div class="cerrar-contenido" onclick="cerrarEsteContenido(this)">
+      ▲ Cerrar
+    </div>
+  </div>
+</section>
+
+</div>
+      </div>
+    </section>
+
+    <section id="valores">
+      <h2 class="seccion-titulo toggle-titulo">BATERÍA EMCH 'CFB' 2025</h2>
+      <div class="content">
+        <!-- Nuevo contenido: 3 puntos desplegables -->
+        
+        <!-- Punto IV AÑO -->
+        <section id="cuarto-ano">
+          <h3 class="subseccion-titulo toggle-titulo">
+            IV AÑO
+          </h3>          
+          <div id="cuartoContent" class="content">
+            <div class="lista-cadetes">
+              <ul>
+                <li>CAD IV ART ABANTO OSORES RANDY ANTONIO</li>
+                <li>CAD IV ART ADCO QUISPE JESUS JOEL</li>
+                <li>CAD IV ART BARCA SANCHEZ BRAYAN SMITH</li>
+                <li>CAD IV ART CCARITA QUISPE NIELS JEFERSON</li>
+                <li>CAD IV ART CORAL GOMEZ HANZ</li>
+                <li>CAD IV ART CUEVA CHÁVEZ JOSÉ DAVID</li>
+                <li>CAD IV ART DE LA CRUZ YAYA PEDRO MAURICIO</li>
+                <li>CAD IV ART FERNANDINI MELGAREJO MAYKER</li>
+                <li>CAD IV ART FLORES QUISPE ALONSO JOSUE</li>
+                <li>CAD IV ART GALLEGOS CARRASCO KEVIN ANDI</li>
+                <li>CAD IV ART GAMERO MARIN GONZALO</li>
+                <li>CAD IV ART GARCIA MAMANI RODRIGO</li>
+                <li>CAD IV ART GONZALES LETTE PALAN</li>
+                <li>CAD IV ART GUTIERREZ GARCIA ELMER</li>
+                <li>CAD IV ART HILARIO HUISA LUIS</li>
+                <li>CAD IV ART INGA DIAZ OSCAR</li>
+                <li>CAD IV ART LOPEZ BARRA JESUS</li>
+                <li>CAD IV ART MEJIA TAYPE DENNIS KLINSMANN</li>
+                <li>CAD IV ART MERCADO MAMANI ANDRE ANTONIO</li>
+                <li>CAD IV ART MORALES ZAPATA MAX GAEL</li>
+                <li>CAD IV ART PALO NAVARRO JHOSEFF</li>
+                <li>CAD IV ART PEÑA ZAPATA ARTURO JEFFERSON</li>
+                <li>CAD IV ART QUEA MAMANI ALDAIR MANUEL</li>
+                <li>CAD IV ART QUISPE GALARRETA ERICK</li>
+                <li>CAD IV ART RAMOS LLALLACACHI ALVARO</li>
+                <li>CAD IV ART REVELLO HERNANDEZ RICARDO</li>
+                <li>CAD IV ART REVILLA BEGAZO ENZO DENNIS</li>
+                <li>CAD IV ART REYES OSORES CLAUDIO</li>
+                <li>CAD IV ART RIVERA RIVAS HERY JOEL</li>
+                <li>CAD IV ART SANCHEZ ORTIZ JESUS</li>
+                <li>CAD IV ART SEVERINO HERNÁNDEZ MIGUEL ANGEL</li>
+                <li>CAD IV ART TOLEDO YABAR DOUGLASS</li>
+                <li>CAD IV ART TORO TIZNADO ALFREDO</li>
+                <li>CAD IV ART TORRES BRITO CARLOS STEFFANO</li>
+                <li>CAD IV ART VALENZUELA CASTILLO PIERO</li>
+                <li>CAD IV ART YNJO MAGUIÑO RENZO</li>
+              </ul>
+            </div>
+            <div class="cerrar-contenido" onclick="cerrarEsteContenido(this)">
+              ▲ Cerrar
+            </div>            
+          </div>
+        </section>        
+    
+        <!-- Punto III AÑO -->
+        <section id="tercer-ano">
+          <h3 class="subseccion-titulo toggle-titulo">
+            III AÑO
+          </h3>
+          <div id="terceroContent" class="content">
+            <div class="lista-cadetes">
+              <ul>
+                <li>CAD III ART AMESQUITA HUARDIA CHRISTIAN</li>
+                <li>CAD III ART AVENDAÑO AMUDIO EMANUEL</li>
+                <li>CAD III ART CASQUI FERNÁNDEZ DANNY</li>
+                <li>CAD III ART CCANA PUMACAYO CARLOS</li>
+                <li>CAD III ART CHOQUE LAURA CHRISTIAN</li>
+                <li>CAD III ART FARFAN VILLACORTA JEFFERZON</li>
+                <li>CAD III ART GARCIA RAYMUNDO GABRIEL</li>
+                <li>CAD III ART GASTELU ROSALES LEONARDO</li>
+                <li>CAD III ART HUARCAYA PORRAS CARLOS</li>
+                <li>CAD III ART HUAYAMA RONDOY ADRIAN</li>
+                <li>CAD III ART LLANOS COLUNCHE JESUS</li>
+                <li>CAD III ART MAQUERA COYLA EDDIE</li>
+                <li>CAD III ART MARTINEZ GUTIERREZ JUAN</li>
+                <li>CAD III ART MELGAREJO CHACMANA RONALDO</li>
+                <li>CAD III ART MENDOZA AGUILAR GIOVANNY</li>
+                <li>CAD III ART MENDOZA BARRETO JEREMY</li>
+                <li>CAD III ART MILIAN HUAMAN DANIEL</li>
+                <li>CAD III ART PEREZ JARA GERSI</li>
+                <li>CAD III ART QUISPE QUECAÑO BRAYAN</li>
+                <li>CAD III ART RUBIO REYES MIGUEL</li>
+                <li>CAD III ART UTURUNCO PERALTA JOEL</li>
+                <li>CAD III ART VEGA PINEDO JOSE</li>
+                <li>CAD III ART VELASQUEZ VENTURA FERNANDO</li>
+                <li>CAD III ART ZAVALA BERNEDO GIANPIERRE</li>
+              </ul>
+            </div>
+            <div class="cerrar-contenido" onclick="cerrarEsteContenido(this)">
+              ▲ Cerrar
+            </div>            
+          </div>
+        </section>        
+    
+        <!-- Punto II AÑO -->
+        <section id="segundo-ano">
+          <h3 class="subseccion-titulo toggle-titulo">
+            II AÑO
+          </h3>
+          <div id="segundoContent" class="content">
+            <div class="lista-cadetes">
+              <ul>
+                <li>CAD II ART ALVARADO GONZALES RUSSELL LIONEL</li>
+                <li>CAD II ART CABRERA JULON JOSTIN ANDRE</li>
+                <li>CAD II ART CADILLO MARCELO JESUS SANTIAGO</li>
+                <li>CAD II ART CHACCA HUAMAN JULIO CESAR</li>
+                <li>CAD II ART COAQUIRA AGUILAR ANDER MACKENCIS</li>
+                <li>CAD II ART CONTRERAS RAEZ HUBER MANUEL</li>
+                <li>CAD II ART DIAZ MENDOZA FABRICIO RUBEN</li>
+                <li>CAD II ART FLORES CHAMBI MAX ALVARADO</li>
+                <li>CAD II ART GALVEZ LINO JOSEPH ALBERTO</li>
+                <li>CAD II ART HUARCAYA CABALLERO OSCAR JAVIER</li>
+                <li>CAD II ART LIÑAN SANTIAGO RODRIGO ANTONIO</li>
+                <li>CAD II ART MACEDO SANTI DANIEL ALBERTO</li>
+                <li>CAD II ART MENESES CARHUAMACA ISRAEL ALEXANDER</li>
+                <li>CAD II ART MERINO TICLIAHUANCA NICK ANTONY</li>
+                <li>CAD II ART MORILLO QUEZADA RONALDO TEILER</li>
+                <li>CAD II ART MUSAJA DURAN LUIS ANTONI</li>
+                <li>CAD II ART NEIRA NEIRA JONATHAN</li>
+                <li>CAD II ART PAUCCARA PUCHO REYNALDO</li>
+                <li>CAD II ART PEREZ CENTURION JEFFERSON ALEXANDER</li>
+                <li>CAD II ART PORRAS CAMPOS PIERO ALEXANDER</li>
+                <li>CAD II ART QUISPE GUZMAN PEDRO LUIS</li>
+                <li>CAD II ART RAMOS CARNERO RODRIGO YAROL</li>
+                <li>CAD II ART RAMOS PORTOCARRERO MARLON BRANDON</li>
+                <li>CAD II ART SEGURA TORIBIO D’ALESSANDER FABIO</li>
+                <li>CAD II ART SULCA CASTRO JHON ANTHONY</li>
+                <li>CAD II ART TENORIO GUEVARA PIERO ALEXANDER</li>
+                <li>CAD II ART TUESTA ALMEIDA PEDRO JOSE</li>
+              </ul>
+            </div>
+            <div class="cerrar-contenido" onclick="cerrarEsteContenido(this)">
+              ▲ Cerrar
+            </div>            
+          </div>
+        </section>        
+    
+      </div>
+    </section>  
+
+    <!-- Sección GALERÍA -->
+    <section id="galeria">
+      <h2 class="seccion-titulo toggle-titulo">GALERÍA</h2>
+      <div class="content">
+        <p class="texto-galeria">A continuación, algunas imágenes de nuestra gloriosa artillería:</p>
+
+<!-- Sección Actividades -->
+<section id="actividades">
+  <h3 class="subseccion-titulo toggle-titulo">
+    Actividades
+  </h3>
+  <div id="actividadesContent" class="content">
+    <div class="imagenes-galeria">
+      <img src="A1.jpg" alt="Actividad 1" onclick="openFullscreen(this)">
+      <img src="A2.jpg" alt="Actividad 2" onclick="openFullscreen(this)">
+      <img src="A3.jpg" alt="Actividad 3" onclick="openFullscreen(this)">
+      <img src="A4.jpg" alt="Actividad 4" onclick="openFullscreen(this)">
+      <img src="A5.jpg" alt="Actividad 5" onclick="openFullscreen(this)">
+      <img src="A6.jpg" alt="Actividad 6" onclick="openFullscreen(this)">
+      <img src="A7.jpg" alt="Actividad 7" onclick="openFullscreen(this)">
+      <img src="A8.jpg" alt="Actividad 8" onclick="openFullscreen(this)">
+      <img src="A9.jpg" alt="Actividad 9" onclick="openFullscreen(this)">
+      <img src="A10.jpg" alt="Actividad 10" onclick="openFullscreen(this)">
+    </div>
+    <div class="cerrar-contenido" onclick="cerrarEsteContenido(this)">
+      ▲ Cerrar
+    </div>    
+  </div>
+</section>
+
+        <!-- Sección Ceremonias -->
+        <section id="ceremonias">
+          <h3 class="subseccion-titulo toggle-titulo">
+            Ceremonias
+          </h3>
+          <div id="ceremoniasContent" class="content">
+            <div class="imagenes-galeria">
+              <img src="C1.jpg" alt="Ceremonia 1" onclick="openFullscreen(this)">
+              <img src="C3.jpg" alt="Ceremonia 2" onclick="openFullscreen(this)">
+              <img src="C4.jpg" alt="Ceremonia 4" onclick="openFullscreen(this)">
+              <img src="C5.jpg" alt="Ceremonia 5" onclick="openFullscreen(this)">
+            </div>  
+            <div class="cerrar-contenido" onclick="cerrarEsteContenido(this)">
+              ▲ Cerrar
+            </div>            
+          </div>          
+        </section>
+
+        <!-- Sección Marchas de Campaña -->
+        <section id="marchas">
+          <h3 class="subseccion-titulo toggle-titulo">
+            Marchas de Campaña
+          </h3>
+          <div id="marchasContent" class="content">
+            <div class="imagenes-galeria">
+              <img src="MC1.jpg" alt="Marcha 1" onclick="openFullscreen(this)">
+              <img src="MC2.jpg" alt="Marcha 2" onclick="openFullscreen(this)">
+              <img src="MC3.jpg" alt="Marcha 3" onclick="openFullscreen(this)">
+              <img src="MC4.jpg" alt="Marcha 4" onclick="openFullscreen(this)">
+              <img src="MC5.jpg" alt="Marcha 5" onclick="openFullscreen(this)">
+              <img src="MC6.jpg" alt="Marcha 6" onclick="openFullscreen(this)">
+              <img src="MC7.jpg" alt="Marcha 7" onclick="openFullscreen(this)">
+              <img src="MC8.jpg" alt="Marcha 8" onclick="openFullscreen(this)">
+              <img src="MC9.jpg" alt="Marcha 9" onclick="openFullscreen(this)">
+              <img src="MC10.JPG" alt="Marcha 10" onclick="openFullscreen(this)">
+            </div>   
+            <div class="cerrar-contenido" onclick="cerrarEsteContenido(this)">
+              ▲ Cerrar
+            </div>            
+          </div>         
+        </section>
+      </div>
+    </section>
+
+    <!-- Cambio de subtitulo: Ahora se llama "CANCIONERO DE ARTILLERÍA" -->
+    <section id="CANCIONERO DE ARTILLERÍA">
+      <h2 class="seccion-titulo toggle-titulo">CANCIONERO DE ARTILLERÍA</h2>
+      <div class="content">
+        <div class="cancionero-container">
+          <p class="cancionero-texto">Descarga el cancionero oficial del arma de artillería:</p>
+          <a href="CANCIONERO DE ARTILLERIA.docx" download class="boton-cancionero">
+            📥 Descargar Cancionero de Artillería
+          </a>
+        </div>
+        <div class="cerrar-contenido" onclick="cerrarEsteContenido(this)">
+          ▲ Cerrar
+        </div>          
+      </div>      
+    </section>
+  </main>
+
+  <footer>
+    <p>CREATE BY CAD IV ART GUTIERREZ GARCIA ELMER - BAT EMCH © 2025</p>
+  </footer>
+
+  <!-- JavaScript para hacer el contenido desplegable -->
+  <script>
+    function toggleContent(contentId, flechaId) {
+      var content = document.getElementById(contentId);
+      var flecha = document.getElementById(flechaId);
+
+      // Si el contenido está visible, lo ocultamos, si está oculto lo mostramos
+      if (content.classList.contains('show')) {
+        content.classList.remove('show'); // Desactiva la clase de deslizamiento
+        flecha.style.transform = "rotate(0deg)";  // Flecha apuntando hacia abajo
+      } else {
+        content.classList.add('show'); // Activa la clase de deslizamiento
+        flecha.style.transform = "rotate(180deg)";  // Flecha apuntando hacia arriba
+      }
+    }
+
+    // Función para abrir la imagen en pantalla completa
+    function openFullscreen(img) {
+      // Crear el contenedor de la imagen en pantalla completa
+      var overlay = document.createElement('div');
+      overlay.id = "fullscreenOverlay";
+      overlay.style.position = "fixed";
+      overlay.style.top = "0";
+      overlay.style.left = "0";
+      overlay.style.width = "100%";
+      overlay.style.height = "100%";
+      overlay.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+      overlay.style.display = "flex";
+      overlay.style.justifyContent = "center";
+      overlay.style.alignItems = "center";
+      overlay.style.zIndex = "1000";
+
+      // Crear la imagen en pantalla completa
+      var fullImage = document.createElement('img');
+      fullImage.src = img.src;
+      fullImage.style.maxWidth = "90%";
+      fullImage.style.maxHeight = "90%";
+      fullImage.style.borderRadius = "10px";
+      
+      // Crear la X para cerrar la pantalla completa
+      var closeBtn = document.createElement('span');
+      closeBtn.innerHTML = "&times;";  // Símbolo de la X
+      closeBtn.style.position = "absolute";
+      closeBtn.style.top = "20px";
+      closeBtn.style.right = "30px";
+      closeBtn.style.fontSize = "3rem";
+      closeBtn.style.color = "#fff";
+      closeBtn.style.cursor = "pointer";
+      closeBtn.onclick = function() {
+        overlay.remove();  // Eliminar el overlay al hacer clic en la X
+      };
+
+      // Añadir la imagen y la X al overlay
+      overlay.appendChild(fullImage);
+      overlay.appendChild(closeBtn);
+
+      // Añadir el overlay al body
+      document.body.appendChild(overlay);
+    }
+  </script>
+  <script src="script.js"></script>
+    <!-- Tu otro JavaScript personalizado (si lo tienes) -->
+    <script>
+      // Permite que el título despliegue el contenido
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".toggle-titulo").forEach(titulo => {
+          titulo.addEventListener("click", () => {
+            const content = titulo.nextElementSibling;
+            content.classList.toggle("show");
+          });
+        });
+      });
+    </script>
+<script>
+  function cerrarEsteContenido(elemento) {
+    const contenido = elemento.closest('.content');
+    if (contenido && contenido.classList.contains('show')) {
+      contenido.classList.remove('show');
+      // NO toques ni opacity ni max-height manualmente
+    }
+  }
+  </script>
+  <script>
+    function dispararCanon(event) {
+      // Sonido
+      var audio = document.getElementById('audioDisparo');
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+    
+      // Crear la bala
+      var bala = document.createElement('div');
+      bala.className = 'bala-canon';
+    
+      // Aparece desde donde diste click
+      bala.style.left = (event.clientX - 15) + 'px'; // 15 para centrar la bola
+      bala.style.top = (event.clientY - 15) + 'px';
+    
+      document.body.appendChild(bala);
+    
+      // Borrar la bala después de la animación
+      bala.addEventListener('animationend', () => {
+        bala.remove();
+      });
+    }
+    
+    // Asignar el click a los cañones
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.icono-canon').forEach(canon => {
+        canon.addEventListener('click', dispararCanon);
+      });
+    });
+    </script>    
+   <script>
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('loader');
+      loader.style.opacity = '0';
+      loader.style.transition = 'opacity 0.8s ease';
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 800);
+    });
+    </script>     
   </body>
+  </html> 
+ 
+</body>
 </html>
